@@ -15,7 +15,7 @@ public class Animal {
 	@NotNull
 	private String nome;
 	
-	private String tipo;
+	private Long tipo;
 	
 	@NotNull
 	private String sexo;
@@ -26,7 +26,7 @@ public class Animal {
 	private boolean Status = false;
 	private String observacao;
 	private Long proprietario;
-	private String idade;
+	private Long idade;
 	
 	
 	public Long getId() {
@@ -72,24 +72,28 @@ public class Animal {
 		this.observacao = observacao;
 	}
 	
-	public String getIdade() {
-		return idade;
-	}
-	public void setIdade(String idade) {
-		this.idade = idade;
-	}
-	public String getTipo() {
-		return tipo;
-	}
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
 	public Long getProprietario() {
 		return proprietario;
 	}
 	public void setProprietario(Long proprietario) {
 		this.proprietario = proprietario;
 	}
+	public Long getTipo() {
+		return tipo;
+	}
+	public void setTipo(Long tipo) {
+		this.tipo = tipo;
+	}
+	public Long getIdade() {
+		return idade;
+	}
+	public void setIdade(Long idade) {
+		this.idade = idade;
+	}
+	
+	
+	
+	
 	
 	
 	

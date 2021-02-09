@@ -28,7 +28,7 @@ public class Proprietario {
 	private String logradouro;
 	private String numero;
 	private String bairro;
-	private String cidade;
+	private Long cidade;
 	public Long getId() {
 		return id;
 	}
@@ -83,12 +83,14 @@ public class Proprietario {
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
 	}
-	public String getCidade() {
+	public Long getCidade() {
 		return cidade;
 	}
-	public void setCidade(String cidade) {
+	public void setCidade(Long cidade) {
 		this.cidade = cidade;
 	}
+	
+	
 	
 	
 	

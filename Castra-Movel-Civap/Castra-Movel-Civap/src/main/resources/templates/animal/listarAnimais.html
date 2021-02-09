@@ -36,10 +36,16 @@
                             <div th:text="${animal.nome}">nomeAnimal</div>
                         </td>
                         <td class="text-center">
-                            <div th:text="${animal.tipo}">Tipo</div>
+                        <div th:switch="${animal.tipo}">
+                        <div th:case="'1'">Gato</div>           
+                          <div th:case="'2'">Cachorro</div>
+                          </div>                 
                         </td>
                         <td class="text-center">
-                            <div th:text="${animal.sexo}">sexo</div>
+                            <div th:switch="${animal.sexo}">
+                        <div th:case="'F'">Femea</div>           
+                          <div th:case="'M'">Macho</div>
+                          </div>                           
                         </td>
                         <td class="text-center">
                             <div th:text="${animal.raca}">raça</div>
@@ -48,7 +54,7 @@
                             <div th:text="${animal.cor}">Cor</div>
                         </td>
                         <td class="text-center">
-                            <div th:text="${animal.idade}">Idade</div>
+                            <div th:text="${animal.idade + ' anos'}">Idade</div>
                         </td>
                     </tr>
                 </div>

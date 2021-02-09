@@ -6,10 +6,10 @@ public class NovoAnimalDto {
 
 	private Long txtCadUnico;
 	private String txtNomeAnimal;
-	private String txtTipo;
+	private Long txtTipo;
 	private String txtSexo;
 	private String txtRaca;
-	private String txtIdade;
+	private Long txtIdade;
 	private String txtCor;
 	private String txtObservacao;
 	
@@ -27,12 +27,7 @@ public class NovoAnimalDto {
 	public void setTxtNomeAnimal(String txtNomeAnimal) {
 		this.txtNomeAnimal = txtNomeAnimal;
 	}
-	public String getTxtTipo() {
-		return txtTipo;
-	}
-	public void setTxtTipo(String txtTipo) {
-		this.txtTipo = txtTipo;
-	}
+	
 	public String getTxtSexo() {
 		return txtSexo;
 	}
@@ -45,12 +40,7 @@ public class NovoAnimalDto {
 	public void setTxtRaca(String txtRaca) {
 		this.txtRaca = txtRaca;
 	}
-	public String getTxtIdade() {
-		return txtIdade;
-	}
-	public void setTxtIdade(String txtIdade) {
-		this.txtIdade = txtIdade;
-	}
+
 	public String getTxtCor() {
 		return txtCor;
 	}
@@ -64,6 +54,20 @@ public class NovoAnimalDto {
 		this.txtObservacao = txtObservacao;
 	}
 	
+	public Long getTxtTipo() {
+		return txtTipo;
+	}
+	public void setTxtTipo(Long txtTipo) {
+		this.txtTipo = txtTipo;
+	}
+	
+	
+	public Long getTxtIdade() {
+		return txtIdade;
+	}
+	public void setTxtIdade(Long txtIdade) {
+		this.txtIdade = txtIdade;
+	}
 	
 	public Animal toAnimal() {
 		Animal animal = new Animal();

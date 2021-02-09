@@ -12,7 +12,7 @@ public class NovoProprietarioDto {
 	private String txtLogradouro;
 	private String txtNumero;
 	private String txtBairro;
-	private String txtCidade;
+	private Long txtCidade;
 	
 	
 	public Long getTxtCadUnico() {
@@ -63,10 +63,11 @@ public class NovoProprietarioDto {
 	public void setTxtBairro(String txtBairro) {
 		this.txtBairro = txtBairro;
 	}
-	public String getTxtCidade() {
+	
+	public Long getTxtCidade() {
 		return txtCidade;
 	}
-	public void setTxtCidade(String txtCidade) {
+	public void setTxtCidade(Long txtCidade) {
 		this.txtCidade = txtCidade;
 	}
 	

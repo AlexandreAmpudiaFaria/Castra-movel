@@ -20,13 +20,22 @@ public class AnimalController {
 	
 	@Autowired
 	private AnimalRepository animalRepository;
+	
 
 	@GetMapping("/listarAnimais")
-	public String listarAnimais(Model model) {
+	public String listarAnimais(Model model, Long tipos) {		
 		List<Animal> animais = animalRepository.findAll();			
-		model.addAttribute("animais", animais);
+		model.addAttribute("animais", animais);		
 		return "/animal/listarAnimais";
 	}
+	
+	/*@GetMapping("/listarGatos")
+	public String listarGatos(Model model) {	
+		Long tipos = (long) 1;
+		List<Animal> animais = animalRepository.findByTipo(tipos);			
+		model.addAttribute("animais", animais);		
+		return "/animal/listarAnimais";
+	}*/
 	
 	@GetMapping("/cadastrarAnimal")
 	public String cadastrarAnimal() {
