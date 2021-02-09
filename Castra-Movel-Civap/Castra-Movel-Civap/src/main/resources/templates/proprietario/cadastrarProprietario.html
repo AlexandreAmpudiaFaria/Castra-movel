@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head th:replace="~{base :: head}"></head>
+
+<body>
+
+    <!--importar o navbar do template-->
+    <nav th:replace="~{base :: nav}"></nav>
+
+    <div class="mt-3 ml-3">
+        <h1 class="text-black mb-5">Cadastrar Novo Proprietário</h1>
+        <form name="" method="POST" action="/proprietario/novoProprietario">
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label for="txtCadUnico">Nº do CadUnico:</label>
+                    <input type="text" class="form-control" id="txtCadUnico" name="txtCadUnico"
+                        placeholder="Digite o numero do CAD unico do proprietario " required="">
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="txtNomeProprietario">Nome Completo:</label>
+                    <input type="text" class="form-control" name="txtNomeProprietario" placeholder="Digite o nome do proprietário"
+                        required="">
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="txtCPF">CPF:</label>
+                    <input type="text" class="form-control" name="txtCPF" placeholder="Digite o CPF"
+                        required="">
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="txtTelefone">Telefone:</label>
+                    <input type="text" class="form-control" name="txtTelefone" placeholder="Digite o telefone" required="">
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="txtEmail">Email:</label>
+                    <input type="text" class="form-control" name="txtEmail" placeholder="Digite o e-mail" required="">
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="txtLogradouro">Logradouro:</label>
+                    <input type="text" class="form-control" name="txtLogradouro" placeholder="Digite o logradouro"
+                        required="">
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="txtNumero">Número:</label>
+                    <input type="text" class="form-control" name="txtNumero" placeholder="Digite o numero da residencia"
+                        required="">
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="txtBairro">Bairro:</label>
+                    <input type="text" class="form-control" name="txtBairro" placeholder="Digite o bairro"
+                        required="">
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="txtCidade">Cidade:</label>
+                    <input type="text" class="form-control" name="txtCidade" placeholder="Digite a cidade"
+                        required="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label for="txtObservacao">Observação:</label>
+                    <input type="text" class="form-control" name="txtObservacao"
+                        placeholder="Digite uma observação sobre o animal">
+                </div>
+            </div>
+
+            <input type="submit" id="botaoEnviar" name="botaoEnviar" class="btn btn-success" value="Gravar">
+
+
+            <script src="jquery-3.4.1.min.js"></script>
+            <script src="jquery-3.4.1.min.js"></script>
+            <script src="toastr.min.js"></script>
+            <input type="reset" id="botaoLimpar" name="botaoLimpar" class=" btn btn-primary" value="Limpar">
+            <a href="/paciente/manterPacientes"><button class="btn btn-danger">Cancelar</button></a>
+        </form>
+    </div>
+
+</body>
+
+</html>
