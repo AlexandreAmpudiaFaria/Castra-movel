@@ -29,13 +29,13 @@ public class AnimalController {
 		return "/animal/listarAnimais";
 	}
 	
-	/*@GetMapping("/listarGatos")
+	@GetMapping("/listarGatos")
 	public String listarGatos(Model model) {	
 		Long tipos = (long) 1;
 		List<Animal> animais = animalRepository.findByTipo(tipos);			
 		model.addAttribute("animais", animais);		
 		return "/animal/listarAnimais";
-	}*/
+	}
 	
 	@GetMapping("/cadastrarAnimal")
 	public String cadastrarAnimal() {
@@ -49,4 +49,7 @@ public class AnimalController {
 		return ("redirect:/animais/listarAnimais");
 	}
 	
+
 }
+	
+	

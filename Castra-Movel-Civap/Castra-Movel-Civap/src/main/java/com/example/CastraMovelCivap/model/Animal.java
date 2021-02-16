@@ -25,6 +25,7 @@ public class Animal {
 	private String cor;
 	private boolean Status = false;
 	private String observacao;
+	 
 	private Long proprietario;
 	private Long idade;
 	

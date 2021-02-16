@@ -1,0 +1,34 @@
+package com.example.CastraMovelCivap.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Sexo {
+
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	private String sexoDesc;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getSexoDesc() {
+		return sexoDesc;
+	}
+
+	public void setSexoDesc(String sexoDesc) {
+		this.sexoDesc = sexoDesc;
+	}
+	
+	
+	
+}
