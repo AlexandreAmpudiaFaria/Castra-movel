@@ -15,6 +15,8 @@ public class Veterinario {
 	private String cpfVet;
 	private String telefone;
 	private String email;
+	
+	
 	public Long getId() {
 		return id;
 	}
