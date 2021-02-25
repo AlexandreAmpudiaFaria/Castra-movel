@@ -17,23 +17,30 @@
         <table class="table table-striped text-center">
             <thead>
                 <tr>
+                <th>ID</th>
                     <th>Nome</th>
-                    <th>Cad Unico</th>
+                    <th>Cidade</th>
+                    <th>Cad Unico</th>                    
                     <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
                 <div th:each="proprietario : ${proprietarios}">
                     <tr>
+                    <td class="text-center">
+                            <div th:text="${proprietario.id}">ID</div>
+                        </td>
                         <td class="text-center">
-                            <div th:text="${proprietario.nome}">nome</div>
+                            <div th:text="${proprietario.nomeProp}">nome</div>
+                        </td>
+                        <td class="text-center">
+                            <div th:text="${proprietario.cidade.nomeCid}">cidade</div>
                         </td>
                         <td class="text-center">
                             <div th:text="${proprietario.cadUnico}">CadUnico</div>
                         </td>
                         <td class="text-center">
-                            <a href=""><button type="button" class="btn btn-warning"><i
-                                        class="fas fa-external-link-alt"></i></button></a>
+                            <a th:href="@{'/animais/listarAnimaisDoProprietario?id=' + ${proprietario.id}}"><button type="button" class="btn btn-warning"><i class="fas fa-paw"></i></button></a>
                         </td>
                     </tr>
                 </div>

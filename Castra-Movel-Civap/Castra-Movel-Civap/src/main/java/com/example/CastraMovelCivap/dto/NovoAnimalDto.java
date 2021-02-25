@@ -1,26 +1,23 @@
 package com.example.CastraMovelCivap.dto;
 
 import com.example.CastraMovelCivap.model.Animal;
+import com.example.CastraMovelCivap.model.Proprietario;
+import com.example.CastraMovelCivap.model.Sexo;
+import com.example.CastraMovelCivap.model.Tipo;
 
 public class NovoAnimalDto {
 
-	private Long txtCadUnico;
 	private String txtNomeAnimal;
+	
 	private Long txtTipo;
-	private String txtSexo;
+	private Long txtSexo;
+	private Long txtprop;
 	private String txtRaca;
 	private Long txtIdade;
 	private String txtCor;
 	private String txtObservacao;
 	
 	
-	
-	public Long getTxtCadUnico() {
-		return txtCadUnico;
-	}
-	public void setTxtCadUnico(Long txtCadUnico) {
-		this.txtCadUnico = txtCadUnico;
-	}
 	public String getTxtNomeAnimal() {
 		return txtNomeAnimal;
 	}
@@ -28,11 +25,25 @@ public class NovoAnimalDto {
 		this.txtNomeAnimal = txtNomeAnimal;
 	}
 	
-	public String getTxtSexo() {
+	public Long getTxtTipo() {
+		return txtTipo;
+	}
+	public void setTxtTipo(Long txtTipo) {
+		this.txtTipo = txtTipo;
+	}
+	
+	public Long getTxtSexo() {
 		return txtSexo;
 	}
-	public void setTxtSexo(String txtSexo) {
+	public void setTxtSexo(Long txtSexo) {
 		this.txtSexo = txtSexo;
+	}
+	
+	public Long getTxtprop() {
+		return txtprop;
+	}
+	public void setTxtprop(Long txtprop) {
+		this.txtprop = txtprop;
 	}
 	public String getTxtRaca() {
 		return txtRaca;
@@ -40,7 +51,12 @@ public class NovoAnimalDto {
 	public void setTxtRaca(String txtRaca) {
 		this.txtRaca = txtRaca;
 	}
-
+	public Long getTxtIdade() {
+		return txtIdade;
+	}
+	public void setTxtIdade(Long txtIdade) {
+		this.txtIdade = txtIdade;
+	}
 	public String getTxtCor() {
 		return txtCor;
 	}
@@ -52,29 +68,30 @@ public class NovoAnimalDto {
 	}
 	public void setTxtObservacao(String txtObservacao) {
 		this.txtObservacao = txtObservacao;
-	}
-	
-	public Long getTxtTipo() {
-		return txtTipo;
-	}
-	public void setTxtTipo(Long txtTipo) {
-		this.txtTipo = txtTipo;
-	}
+	}	
 	
 	
-	public Long getTxtIdade() {
-		return txtIdade;
-	}
-	public void setTxtIdade(Long txtIdade) {
-		this.txtIdade = txtIdade;
-	}
 	
-	public Animal toAnimal() {
+	public Animal NewAnimal() {
 		Animal animal = new Animal();
-		animal.setProprietario(txtCadUnico);
-		animal.setNome(txtNomeAnimal);
-		animal.setTipo(txtTipo);
-		animal.setSexo(txtSexo);
+		
+		//salvar o proprietario
+		Proprietario prop = new Proprietario();
+		prop.setId(txtprop);
+		animal.setProprietario(prop);
+		
+		//salvar o sexo do animal
+		Sexo sex = new Sexo();
+		sex.setId(txtSexo);
+		animal.setSexo(sex);
+		
+		//salvar o tipo do animal
+		Tipo tip = new Tipo();
+		tip.setId(txtTipo);
+		animal.setTipo(tip);
+		//end tipo
+		
+		animal.setNomeAnimal(txtNomeAnimal);		
 		animal.setRaca(txtRaca);
 		animal.setIdade(txtIdade);
 		animal.setCor(txtCor);

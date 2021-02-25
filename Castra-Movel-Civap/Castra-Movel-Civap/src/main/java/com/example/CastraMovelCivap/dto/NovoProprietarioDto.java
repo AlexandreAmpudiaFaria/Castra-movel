@@ -1,5 +1,6 @@
 package com.example.CastraMovelCivap.dto;
 
+import com.example.CastraMovelCivap.model.Cidade;
 import com.example.CastraMovelCivap.model.Proprietario;
 
 public class NovoProprietarioDto {
@@ -12,8 +13,7 @@ public class NovoProprietarioDto {
 	private String txtLogradouro;
 	private String txtNumero;
 	private String txtBairro;
-	private Long txtCidade;
-	
+	private Long txtCidade;	
 	
 	public Long getTxtCadUnico() {
 		return txtCadUnico;
@@ -64,26 +64,29 @@ public class NovoProprietarioDto {
 		this.txtBairro = txtBairro;
 	}
 	
+	
 	public Long getTxtCidade() {
 		return txtCidade;
 	}
 	public void setTxtCidade(Long txtCidade) {
 		this.txtCidade = txtCidade;
 	}
-	
 	public Proprietario toProprietario() {
+		Cidade cid = new Cidade();
 		Proprietario proprietario = new Proprietario();
 		proprietario.setCadUnico(txtCadUnico);
-		proprietario.setNome(txtNomeProprietario);
-		proprietario.setCpf(txtCPF);
+		proprietario.setNomeProp(txtNomeProprietario);
 		proprietario.setTelefone(txtTelefone);
 		proprietario.setEmail(txtEmail);
 		proprietario.setLogradouro(txtLogradouro);
 		proprietario.setNumero(txtNumero);
+		proprietario.setCpf(txtCPF);
 		proprietario.setBairro(txtBairro);
-		proprietario.setCidade(txtCidade);
+		cid.setId(txtCidade);
+		proprietario.setCidade(cid);
 		return proprietario;
 	}
+
 	
 	
 	

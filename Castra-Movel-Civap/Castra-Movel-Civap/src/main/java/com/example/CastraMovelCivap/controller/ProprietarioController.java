@@ -26,20 +26,12 @@ public class ProprietarioController {
 		return "/proprietario/listarProprietarios";
 	}
 	
-	@GetMapping("/listarMaracai")
-	public String listarMaracai(Model model) {	
-		Long cidade = (long) 1;
-		List<Proprietario> proprietarios = proprietarioRepository.findByCidade(cidade);			
-		model.addAttribute("proprietarios", proprietarios);		
-		return "/proprietario/listarProprietarios";
-	}
-	
-	@GetMapping("/listarParaguacu")
-	public String listarParaguacu(Model model) {	
-		Long cidade = (long) 2;
-		List<Proprietario> proprietarios = proprietarioRepository.findByCidade(cidade);			
-		model.addAttribute("proprietarios", proprietarios);		
-		return "/proprietario/listarProprietarios";
+	@GetMapping("/listarProp")
+	public String listarPorCidade(Long id, Model model) {
+			List<Proprietario> proprietarios = proprietarioRepository.findByCidadeId(id);
+			model.addAttribute("proprietarios", proprietarios);
+			return "/proprietario/listarProprietarios";					
+		
 	}
 	
 	@GetMapping("/cadastrarProprietario")

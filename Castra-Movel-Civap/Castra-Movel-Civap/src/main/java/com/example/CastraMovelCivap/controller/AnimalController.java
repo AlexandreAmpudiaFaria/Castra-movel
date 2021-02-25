@@ -23,28 +23,44 @@ public class AnimalController {
 	
 
 	@GetMapping("/listarAnimais")
-	public String listarAnimais(Model model, Long tipos) {		
-		List<Animal> animais = animalRepository.findAll();			
+	public String listarAnimais(Model model) {		
+		List<Animal> animais = animalRepository.findAll();
 		model.addAttribute("animais", animais);		
 		return "/animal/listarAnimais";
 	}
 	
-	@GetMapping("/listarGatos")
-	public String listarGatos(Model model) {	
-		Long tipos = (long) 1;
-		List<Animal> animais = animalRepository.findByTipo(tipos);			
+	@GetMapping("/listarPorBairro")
+	public String listarPorBairro(String txtBusca, Model model) {		
+		List<Animal> animais = animalRepository.findByProprietarioBairro(txtBusca.toUpperCase());
 		model.addAttribute("animais", animais);		
 		return "/animal/listarAnimais";
 	}
+	
+	@GetMapping("/listarPorCidade")
+	public String listarPorCidade(Long id, Model model) {		
+		List<Animal> animais = animalRepository.findByProprietarioCidadeId(id);
+		model.addAttribute("animais", animais);		
+		return "/animal/listarAnimais";
+	}
+	
+	@GetMapping("/listarAnimaisDoProprietario")
+	public String listarAnimaisDoProp(Long id, Model model) {
+		System.out.println(id);
+		List<Animal> animais = animalRepository.findByProprietarioId(id);
+		model.addAttribute("animais", animais);		
+		return "/animal/listarAnimais";				
+		
+	}
+	
 	
 	@GetMapping("/cadastrarAnimal")
 	public String cadastrarAnimal() {
-		return "animal/cadastrarAnimal";
+		return "/animal/cadastrarAnimal";
 	}
 	
 	@PostMapping("/novoAnimal")
 	public String novoAnimal(NovoAnimalDto requisicao) {
-		Animal animal = requisicao.toAnimal();
+		Animal animal = requisicao.NewAnimal();
 		animalRepository.save(animal);
 		return ("redirect:/animais/listarAnimais");
 	}

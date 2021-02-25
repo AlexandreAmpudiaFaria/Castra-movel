@@ -11,7 +11,17 @@
     </div>
     <div class="row container-fluid d-flex justify-content-between sm">
         <a href="/animais/cadastrarAnimal"><button class="btn btn-primary ml-3">Adicionar Novo</button></a>
+        <form action="/animais/listarPorBairro" method="GET">
+            <div>
+                <div class="form-check form-check-inline">
+                    <input type="text" class="form-control" name="txtBusca" placeholder="Filtrar por bairro">
+                    <input type="submit" class="btn btn-success ml-2">                
+                </div>
+            </div>
+        </form>
     </div>
+
+
 
     <div class="mt-3">
         <table class="table table-striped text-center">
@@ -24,40 +34,53 @@
                     <th>Raça</th>
                     <th>Cor</th>
                     <th>Idade</th>
+                    <th>Proprietario</th>
+                    <th>Cidade</th>
+                    <th>Bairro</th>
+                    <th>Acoes</th>
                 </tr>
             </thead>
             <tbody>
-                <div th:each="animal : ${animais}">
-                    <tr>
-                        <td class="text-center">
-                            <div th:text="${animal.id}">ID</div>
-                        </td>
-                        <td class="text-center">
-                            <div th:text="${animal.nome}">nomeAnimal</div>
-                        </td>
-                        <td class="text-center">
-                        <div th:switch="${animal.tipo}">
-                        <div th:case="'1'">Gato</div>           
-                          <div th:case="'2'">Cachorro</div>
-                          </div>                 
-                        </td>
-                        <td class="text-center">
-                            <div th:switch="${animal.sexo}">
-                        <div th:case="'F'">Femea</div>           
-                          <div th:case="'M'">Macho</div>
-                          </div>                           
-                        </td>
-                        <td class="text-center">
-                            <div th:text="${animal.raca}">raça</div>
-                        </td>
-                        <td class="text-center">
-                            <div th:text="${animal.cor}">Cor</div>
-                        </td>
-                        <td class="text-center">
-                            <div th:text="${animal.idade + ' anos'}">Idade</div>
-                        </td>
-                    </tr>
-                </div>
+                <form action="/gerar/encaminhar" method="POST">
+                    <div th:each="animal : ${animais}">
+                        <tr>
+                            <td class="text-center">
+                                <div th:text="${animal.id}" name="txtID">ID</div>
+                            </td>
+                            <td class="text-center">
+                                <div th:text="${animal.nomeAnimal}">nomeAnimal</div>
+                            </td>
+                            <td class="text-center">
+                                <div th:text="${animal.tipo.descricao}">Tipo</div>
+                            </td>
+                            <td class="text-center">
+                                <div th:text="${animal.sexo.sexoDesc}">Sexo</div>
+                            </td>
+                            <td class="text-center">
+                                <div th:text="${animal.raca}">raça</div>
+                            </td>
+                            <td class="text-center">
+                                <div th:text="${animal.cor}">Cor</div>
+                            </td>
+                            <td class="text-center">
+                                <div th:text="${animal.idade + ' anos'}">Idade</div>
+                            </td>
+                            <td class="text-center">
+                                <div th:text="${animal.proprietario.nomeProp}">Proprietario</div>
+                            </td>
+                            <td class="text-center">
+                                <div th:text="${animal.proprietario.cidade.nomeCid}">Cidade</div>
+                            </td>
+                            <td class="text-center">
+                                <div th:text="${#strings.toLowerCase(animal.proprietario.bairro)}">Bairro</div>
+                            </td>
+                            <td class="text-center">
+                                <a th:href="@{'/gerar/encaminhar?id=' + ${animal.id}}"><button type="button"
+                                        class="btn btn-warning"><i class="fas fa-share-square"></i></button></a>
+                            </td>
+                        </tr>
+                    </div>
+                </form>
             </tbody>
         </table>
     </div>
